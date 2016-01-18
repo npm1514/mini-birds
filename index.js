@@ -18,7 +18,7 @@ app.post('/api/sighting', function(req, res, next){
     if (err) {
       res.status(500).end();
     }
-    
+
     res.send(result);
   });
 });
@@ -31,7 +31,6 @@ app.get('/api/sighting', function(req, res, next){
 
 app.delete('/api/sighting/:id', function(req, res, next){
   var idToDelete = ObjectId(req.params.id);
-
   db.sightings.remove({_id:idToDelete}, function(err, result){
     if (err) {
       res.status(500).send("Failed to delete");
